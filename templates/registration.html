@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Admin registration page{% endblock title %}
+
+{% block body %}
+
+
+    <div class="conter">
+        <form method="post">
+              {% csrf_token %}
+           <h1 class="form-title">STAFF REGISTRATION</h1>
+           {{form.as_p}} 
+
+            <div class="form-submit-btn">
+                <input type="submit" value="Register User">
+            </div>
+        </form>
+    </div>
+
+
+<br><br><br><br><br><br>
+
+
+{% endblock body %}

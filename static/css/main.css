@@ -1,0 +1,420 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: "Montserrat-black";
+
+
+}
+
+/* navigation section */
+.title {
+    background-color: #005B41;
+    
+    color: #fff;
+}
+
+.nav-item .nav-link {
+    color: #fff;
+}
+
+
+.hb {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-family: 'Pacifico', cursive;
+
+}
+
+
+
+.navbar {
+    padding: 0 0 1.5rem;
+}
+
+.nav-item {
+    padding: 0 17px;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+}
+
+.nav-link:hover {
+    color: rgb(146, 144, 199);
+}
+
+.nav-link:active {
+    color: rgb(107, 81, 81);
+}
+
+.navbar-brand {
+    font-family: "ubuntu";
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn {
+    color: #fff;
+}
+
+/* navigation emds here */
+
+
+
+
+/* .im {
+    width: 200px;
+    margin-bottom: 20px;
+} */
+
+#footer {
+    background-color: #050583;
+    color: #fff;
+}
+
+
+
+.hde {
+    margin-bottom: 7%;
+    color: #000000;
+    font-family: 'Sacramento', cursive;
+}
+
+/* FOOTER SECTION */
+#footer {
+    padding: 3% 5%;
+}
+
+.soial-icon {
+    margin: 20px 10px;
+    font-size: 1.5rem;
+}
+
+.soial-icon:hover {
+    color: black;
+}
+
+/* about us page */
+.cl {
+    width: 50%;
+    margin: auto;
+    line-height: 2;
+}
+
+
+
+/* login section */
+.contner {
+    width: 100%;
+    height: 80vh;
+    background-image: linear-gradient(rgb(0, 0, 50, 0.8), rgb(0, 0, 50, 0.8)), url('../img/login.png');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.form-box {
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 50px 60px 70px;
+    text-align: center;
+}
+
+.form-box h1 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: #3c00a0;
+}
+
+.input-field {
+    background: #eaeaea;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-field input {
+    width: 100%;
+    height: 15PX;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+
+}
+
+.input-field i {
+    margin-left: 15px;
+    color: #999;
+}
+
+form p {
+    text-align: left;
+    font-size: 13px;
+}
+
+form a {
+    text-decoration: none;
+    color: #3c00a0;
+}
+
+.btn-field button {
+    width: 100%;
+    background: #3c00a0;
+    color: #fff;
+    height: 45px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: backgroud 1s;
+    font-weight: 500;
+}
+
+
+/* add users form */
+.cntfa {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cntfa header {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.cntfa header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    background-color: var(--blue);
+}
+
+.cntfa form {
+    position: relative;
+    margin-top: 16px;
+    min-height: 490px;
+    background-color: #fff;
+}
+
+.cntfa form .details {
+    margin-top: 30px;
+}
+
+.cntfa form .til {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+
+.cntfa form .filds {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .filds .in-fild {
+    display: flex;
+    width: calc(100% / 3 -15px);
+    flex-direction: column;
+    margin: 4px 0;
+
+}
+
+.in-fild label {
+    font-weight: 500;
+    font-size: 12px;
+    color: #2e2e2e;
+}
+
+.in-fild input {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 30px;
+    margin: 8px 0;
+}
+
+.in-fild input input:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+
+}
+
+.in-fild input input[type='date'] {
+    color: #707070;
+}
+
+.in-fild input input[type='date']:valid {
+    color: #333;
+}
+
+/* registration form for users */
+
+
+.conter {
+    width: 100%;
+    max-width: 95%;
+    background-color: #fff;
+    padding: 28px;
+    margin: 0 28px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #1e07cd;
+}
+
+.form-title {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #000;
+
+}
+
+.main-user-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.user-input-box:nth-child(2n) {
+    justify-content: end;
+
+}
+
+.user-input-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+.user-input-box label {
+    width: 90%;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px 0;
+
+}
+
+.user-input-box input {
+    height: 40px;
+    width: 90%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid gray;
+    padding: 0 10px;
+}
+
+.role-title {
+    color: #000;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 1px solid #000;
+}
+
+.role-category {
+    margin: 15px 0;
+    color: #000;
+
+}
+
+.role-category label {
+    padding: 0 20px 0 5px;
+
+}
+
+.role-category label,
+.role-category input,
+.form-submit-btn input {
+    cursor: pointer;
+
+}
+
+.form-submit-btn {
+    margin-top: 40px;
+}
+
+.form-submit-btn input {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background: #0d0364;
+}
+
+.form-submit-btn input:hover {
+    background: #11095f;
+    color: rgb(255, 255, 255);
+}
+
+@media(max-width: 600px) {
+    .container {
+        min-width: 280px;
+    }
+
+    .user-input-box {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+
+    .user-input-box:nth-child(2n) {
+        justify-content: space-between;
+
+    }
+
+    .role-category {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .main-user-info {
+        max-width: 380px;
+        overflow: auto;
+    }
+
+    .main-user-info::-webkit-scrollbar {
+        width: 0;
+
+    }
+}

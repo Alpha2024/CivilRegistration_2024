@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% block title %}
+  Admin-dashboard-add-users
+{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <div class="col" style="left: 20px;">
+      <button class="btn btn-primary"><a href="{% url 'export_to_csv' %}" style="color: white;">EXPORT-CSV</a></button>
+    </div>
+    <div class="col" style="right: 350px;">
+      <button class="btn btn-secondary"><a href="{% url 'export_to_pdf' %}" style="color: white;">EXPPORT-PDF</a></button>
+    </div>
+  </div>
+
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"></h1>
+    <a href="" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Client</a>
+  </div>
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">REGISTERED CLIENTS</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>NIN</th>
+              <th>FIRST NAME</th>
+              <th>MIDDLE NAME</th>
+              <th>SURNAME</th>
+              <th>REGISTERED DATE</th>
+              <th>GENDER</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for client in recent_clients %}
+              <tr>
+                <td>{{ client.nin }}</td>
+                <td>{{ client.first_name }}</td>
+                <td>{{ client.middle_name }}</td>
+                <td>{{ client.last_name }}</td>
+                <td>{{ client.registered_date }}</td>
+                <td>{{ client.gender }}</td>
+                <td>
+                  <a href="{% url 'update_customer' client.id %}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>
+
+                  <form action="" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <a href="{% url 'emp_delt' client.id %}" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                  </form>
+
+                  <a href="{% url 'view_users' client.id %}" class="btn btn-primary btn-circle btn-sm"><i class="fa-regular fa-eye"></i></a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% comment %}modal form to create emp{% endcomment %}
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable animate__animated animate__fadeIn">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-home"></i>&nbsp;&nbsp;Add a Client</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="card">
+            <h4 class="text-center">Client Registration</h4>
+            <div class="card-body">
+              <div class="mb-3">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-6">{{ form.first_name.label }}
+                        {{ form.first_name }}</div>
+                      <div class="col-md-6">{{ form.last_name.label }}
+                        {{ form.last_name }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.middle_name.label }}
+                        {{ form.middle_name }}</div>
+                      <div class="col-md-6">{{ form.email.label }}
+                        {{ form.email }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.gender.label }}
+                        {{ form.gender }}</div>
+                      <div class="col-md-6">{{ form.dob.label }}
+                        {{ form.dob }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.fathername.label }}
+                        {{ form.fathername }}</div>
+
+                      <div class="col-md-6">{{ form.mothername.label }}
+                        {{ form.mothername }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.address.label }}
+                        {{ form.address }}</div>
+                      <div class="col-md-6">{{ form.district.label }}
+                        {{ form.district }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.city.label }}
+                        {{ form.city }}</div>
+
+                      <div class="col-md-6">{{ form.region.label }}
+                        {{ form.region }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.contact.label }}
+                        {{ form.contact }}</div>
+                      <div class="col-md-6">{{ form.height.label }}
+                        {{ form.height }}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">{{ form.citizenship.label }}
+                        {{ form.citizenship }}</div>
+                      <div class="col-md-6">{{ form.religion.label }}
+                        {{ form.religion }}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">{{ form.registered_date.label }}
+                        {{ form.registered_date }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">{{ form.photo.label }}
+                        {{ form.photo }}</div>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-secondary mt-5" style="margin-left: 150px; width: 60%;">
+                    <i class="fas fa-database"></i>
+                    Add
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% block title %}
+  Admin dashboard
+{% endblock %}
+
+{% block body %}
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <marquee behavior="scroll" direction="left">
+        <h1 class="h3 mb-0 text-gray-800" style="font-family: 'Bradley Hand ITC',cursive; font-weight: bold;">CIVIL REGISTRATION MANAGEMENT SYSTEM-SIERRA LEONE</h1>
+      </marquee>
+    </div>
+
+    
+    
+
+    
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-warning shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">TOTAL DEATH</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_users}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 text-left">
+    <div class="card shadow mb-4">
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <button class="btn btn-primary"><a href="#" style="color: white;" data-bs-toggle="modal" data-bs-target="#example3">+ADD NEW</a></button>
+        </div>
+      </div>
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">REGISTERED DEATH CLIENTS</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>FIRST NAME</th>
+                <th>MIDDLE NAME</th>
+                <th>LAST NAME</th>
+                <th>GENDER</th>
+                <th>DATE OF DEATH</th>
+                <th>CAUSE OF DEATH</th>
+              </tr>
+            </thead>
+            <tbody>
+               {% for record in death_records %}
+                <tr>
+                  <td>{{record.id}}</td>
+                  <td><a href="#">{{ record.first_name }}</a></td>
+
+                  <td>{{record.middle_name}}</td>
+                  <td>{{record.last_name}}</td>
+                  <td>{{record.gender}}</td>
+                  <td>{{record.date_of_death}}</td>
+                  <td>{{record.cause_of_death}}</td>
+                </tr>
+              {% endfor %} 
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% comment %} model for death {% endcomment %}
+  <div class="modal fade" id="example3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable animate__animated animate__fadeIn">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-home"></i>&nbsp;&nbsp;Add a Client</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="card">
+            <h4 class="text-center">Client Registration</h4>
+            <div class="card-body">
+              <div class="mb-3">
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-6">{{ form.first_name.label }}
+                        {{ form.first_name }}</div>
+                      <div class="col-md-6">{{ form.last_name.label }}
+                        {{ form.last_name }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.middle_name.label }}
+                        {{ form.middle_name }}</div>
+                      <div class="col-md-6">{{ form.date_of_death.label}}
+                        {{ form.date_of_death }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.gender.label }}
+                        {{ form.gender }}</div>
+                      <div class="col-md-6">{{ form.cause_of_death.label }}
+                        {{ form.cause_of_death}}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.time_of_death.label }}
+                        {{ form.time_of_death }}</div>
+                      <div class="col-md-6">{{ form.district.label }}
+                        {{ form.district}}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.city.label }}
+                        {{ form.city }}</div>
+
+                      <div class="col-md-6">{{ form.age.label }}
+                        {{ form.age }}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">{{ form.address.label }}
+                        {{ form.address }}</div>
+                      <div class="col-md-6">{{ form.registered_date.label }}
+                        {{ form.registered_date}}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">{{ form.photo.label }}
+                        {{ form.photo }}</div>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-secondary mt-5" style="margin-left: 150px; width: 60%;">
+                    <i class="fas fa-database"></i>
+                    Add
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
